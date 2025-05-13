@@ -24,7 +24,9 @@ const DashboardLayout = ({ title, children }) => {
         <SideNav open={open} />
         <Box flexGrow={1}>
           <TopNav title={title} setOpen={setOpen} />
-          <Container px="4">{children}</Container>
+          <Container px="4" mt="6" maxW="60rem">
+            {children}
+          </Container>
         </Box>
       </Flex>
     </>

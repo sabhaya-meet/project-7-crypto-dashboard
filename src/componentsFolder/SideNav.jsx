@@ -21,7 +21,7 @@ const SideNav = ({ open }) => {
     <Stack
       position={{ base: "fixed", lg: "static" }}
       h="100vh"
-      w={{ base: "90%", lg: "16rem" }}
+      w={{ base: "90%", lg: "12rem" }}
       bg="white"
       zIndex="20"
       boxShadow="lg"
