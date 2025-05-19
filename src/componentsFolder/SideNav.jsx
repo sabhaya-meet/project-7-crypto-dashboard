@@ -3,6 +3,7 @@ import { RxDashboard } from "react-icons/rx";
 import { LuArrowUpDown } from "react-icons/lu";
 import { BiSupport } from "react-icons/bi";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SideNav = ({ open }) => {
   const navLink = [
@@ -31,6 +32,7 @@ const SideNav = ({ open }) => {
       }}
       transition="transform 0.4s ease-in-out"
       display="flex"
+      justify="space-between"
     >
       <Box>
         <Heading textAlign="center" as="h1" fontSize="20px" pt="56px">
@@ -38,43 +40,46 @@ const SideNav = ({ open }) => {
         </Heading>
         <Box mt="6" mx="3">
           {navLink.map((nav) => (
-            <HStack
-              key={nav.text}
-              py="3"
-              px="4"
-              _hover={{
-                bg: "#F3F3F7",
-                color: "#171717",
-              }}
-              color="#797E82"
-              borderRadius="10px"
-              cursor="pointer"
-            >
-              <Icon as={nav.icon} />
-              <Text fontSize="14px" fontWeight="medium">
-                {nav.text}
-              </Text>
-            </HStack>
+            <Link to={nav.link} key={nav.text}>
+              <HStack
+                py="3"
+                px="4"
+                _hover={{
+                  bg: "#F3F3F7",
+                  color: "#171717",
+                }}
+                color="#797E82"
+                borderRadius="10px"
+                cursor="pointer"
+              >
+                <Icon as={nav.icon} />
+                <Text fontSize="14px" fontWeight="medium">
+                  {nav.text}
+                </Text>
+              </HStack>
+            </Link>
           ))}
         </Box>
       </Box>
       <Box mt="6" mx="3" mb="6">
-        <HStack
-          py="3"
-          px="4"
-          _hover={{
-            bg: "#F3F3F7",
-            color: "#171717",
-          }}
-          color="#797E82"
-          borderRadius="10px"
-          cursor="pointer"
-        >
-          <Icon as={BiSupport} />
-          <Text fontSize="14px" fontWeight="medium">
-            Support
-          </Text>
-        </HStack>
+        <Link to="/support">
+          <HStack
+            py="3"
+            px="4"
+            _hover={{
+              bg: "#F3F3F7",
+              color: "#171717",
+            }}
+            color="#797E82"
+            borderRadius="10px"
+            cursor="pointer"
+          >
+            <Icon as={BiSupport} />
+            <Text fontSize="14px" fontWeight="medium">
+              Support
+            </Text>
+          </HStack>
+        </Link>
       </Box>
     </Stack>
   );
